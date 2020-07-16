@@ -11,11 +11,17 @@ function App() {
     setComputerSelection("Lizard");
   }
 
+  const selectedOptionText = () => {
+    if(userSelection !== ""){
+      return <h3>You chose {userSelection}</h3>
+    }
+  }
+
   return (
     <>
       <h2>Choose carefully!</h2>
       <OptionSelector userSelection={userSelection} onUserSelection={setUserSelection}/>
-      <h3>Your choice: {userSelection}</h3>
+      {selectedOptionText()}
       <button onClick={() => finishGame()}>Submit</button>
       <h3>Computer's choice: {computerSelection}</h3>
     </>

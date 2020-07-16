@@ -24,12 +24,18 @@
     width: 80vw;
     grid-template-areas:
         ". scissors ."
-        "spock . paper"
+        "spock description paper"
         "lizard . rock";
 }
 
 .confirmedOption{
     width: 50%;
+    align-self: center;
+}
+
+.optionDescription{
+    grid-area: description;
+    justify-self: center;
     align-self: center;
 }
 

@@ -16,6 +16,7 @@ const OptionSelector = ({userSelection, onUserSelection}) => {
     return <img className="confirmedOption" src={"/" + userSelection.toLowerCase() + ".png"} alt={userSelection}/>;
       }
   return <div className="optionsContainer">
+          <p className={"optionDescription"}>{hoveredOption}</p>
           <Option image={"/scissors.png"} optionName={"Scissors"} onHover={setHoveredOption} hoveredOption={hoveredOption} onUserSelection={onSelectedOption}/>
           <Option image={"/paper.png"} optionName={"Paper"} onHover={setHoveredOption} hoveredOption={hoveredOption} onUserSelection={onSelectedOption}/>
           <Option image={"/rock.png"} optionName={"Rock"} onHover={setHoveredOption} hoveredOption={hoveredOption} onUserSelection={onSelectedOption}/>
