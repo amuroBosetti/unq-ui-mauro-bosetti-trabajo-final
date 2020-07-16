@@ -1,27 +1,26 @@
 import React, {useState} from "react";
 import Option from "../../Option";
 import "../../styles/option.css"
+import {options} from "../../domain/Options";
 
 const OptionSelector = ({userSelection, onUserSelection}) => {
 
   const [hoveredOption, setHoveredOption] = useState('')
-  const [hasSelectedOption, setHasSelectedOption] = useState(false)
 
   const onSelectedOption = (optionName) => {
     onUserSelection(optionName)
-    setHasSelectedOption(true)
   }
 
-  if (hasSelectedOption) {
+  if (userSelection !== "") {
     return <img className="confirmedOption" src={"/" + userSelection.toLowerCase() + ".png"} alt={userSelection}/>;
-      }
+  }
   return <div className="optionsContainer">
           <p className={"optionDescription"}>{hoveredOption}</p>
-          <Option image={"/scissors.png"} optionName={"Scissors"} onHover={setHoveredOption} hoveredOption={hoveredOption} onUserSelection={onSelectedOption}/>
-          <Option image={"/paper.png"} optionName={"Paper"} onHover={setHoveredOption} hoveredOption={hoveredOption} onUserSelection={onSelectedOption}/>
-          <Option image={"/rock.png"} optionName={"Rock"} onHover={setHoveredOption} hoveredOption={hoveredOption} onUserSelection={onSelectedOption}/>
-          <Option image={"/lizard.png"} optionName={"Lizard"} onHover={setHoveredOption} hoveredOption={hoveredOption} onUserSelection={onSelectedOption}/>
-          <Option image={"/spock.png"} optionName={"Spock"} onHover={setHoveredOption} hoveredOption={hoveredOption} onUserSelection={onSelectedOption}/>
+          <Option image={"/scissors.png"} optionName={options.SCISSORS} onHover={setHoveredOption} hoveredOption={hoveredOption} onUserSelection={onUserSelection}/>
+          <Option image={"/paper.png"} optionName={options.PAPER} onHover={setHoveredOption} hoveredOption={hoveredOption} onUserSelection={onUserSelection}/>
+          <Option image={"/rock.png"} optionName={options.ROCK} onHover={setHoveredOption} hoveredOption={hoveredOption} onUserSelection={onUserSelection}/>
+          <Option image={"/lizard.png"} optionName={options.LIZARD} onHover={setHoveredOption} hoveredOption={hoveredOption} onUserSelection={onUserSelection}/>
+          <Option image={"/spock.png"} optionName={options.SPOCK} onHover={setHoveredOption} hoveredOption={hoveredOption} onUserSelection={onUserSelection}/>
     </div>
 
 
