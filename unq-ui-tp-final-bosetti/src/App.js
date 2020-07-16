@@ -1,10 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import Game from "./components/pages/Game";
+import OptionSelector from "./components/pages/OptionSelector";
 
 function App() {
+
+  const [userSelection, setUserSelection] = useState("")
+  const [computerSelection, setComputerSelection] = useState("")
+
+  const finishGame = () => {
+    setComputerSelection("Lizard");
+  }
+
   return (
-    <Game/>
+    <>
+      <h2>Choose carefully!</h2>
+      <OptionSelector userSelection={userSelection} onUserSelection={setUserSelection}/>
+      <h3>Your choice: {userSelection}</h3>
+      <button onClick={() => finishGame()}>Submit</button>
+      <h3>Computer's choice: {computerSelection}</h3>
+    </>
   );
 }
 

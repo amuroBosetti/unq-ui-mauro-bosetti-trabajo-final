@@ -1,5 +1,5 @@
 .optionButton{
-    border-radius: 50%;
+    border-radius: 60%;
     border: none;
     background: none;
 }
@@ -11,8 +11,48 @@
 
 .optionImage{
     width: 20vw;
+    border-radius: 50%;
 }
 
 .unselectedOption{
     opacity: 0.2;
+}
+
+.optionsContainer{
+    display: grid;
+    align-self: center;
+    width: 80vw;
+    grid-template-areas:
+        ". scissors ."
+        "spock . paper"
+        "lizard . rock";
+}
+
+.confirmedOption{
+    width: 50%;
+    align-self: center;
+}
+
+#Scissors{
+    grid-area: scissors;
+}
+
+#Spock{
+    grid-area: spock;
+    margin-top: -20%;
+}
+
+#Rock{
+    grid-area: rock;
+    margin-left: -40%;
+}
+
+#Lizard{
+    grid-area: lizard;
+    margin-right: -40%;
+}
+
+#Paper{
+    grid-area: paper;
+    margin-top: -20%;
 }
