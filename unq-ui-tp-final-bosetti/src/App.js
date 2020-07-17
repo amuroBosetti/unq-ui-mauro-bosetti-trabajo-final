@@ -11,8 +11,9 @@ function App() {
   const [computerSelection, setComputerSelection] = useState("")
   const [isLoadingResults, setIsLoadingResults] = useState(false)
 
-  const submitUserSelection = () => {
+  const submitUserSelection = (option) => {
     let keys = Object.keys(options)
+    setUserSelection(option)
     let randomOption = options[keys[Math.floor(Math.random() * keys.length)]];
     setComputerSelection(randomOption);
     setIsLoadingResults(true);
@@ -32,8 +33,7 @@ function App() {
   return (
     <>
       <h3 className={"choiceText"}>YOUR CHOICE</h3>
-      <OptionSelector userSelection={userSelection} onUserSelection={setUserSelection}/>
-      <button className={"submitButton"} onClick={() => submitUserSelection()}>SUBMIT</button>
+      <OptionSelector userSelection={userSelection} onUserSelection={submitUserSelection} interactive/>
       <h3>Computer's choice: {computerSelection}</h3>
       <RandomOption option={computerSelection}/>
       <WinnerAnnouncer userSelection={userSelection} computerSelection={computerSelection} isLoadingResult={isLoadingResults}/>
