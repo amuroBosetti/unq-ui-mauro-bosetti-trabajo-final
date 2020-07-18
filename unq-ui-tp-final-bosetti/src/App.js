@@ -1,43 +1,43 @@
 import React, {useState} from 'react';
 import './App.css';
-import OptionSelector from "./components/pages/OptionSelector";
+import UserOptionSelector from "./components/pages/UserOptionSelector";
 import {options} from "./domain/Options";
 import {WinnerAnnouncer} from "./components/WinnerAnnouncer";
-import {RandomOption} from "./components/RandomOption";
+import {ComputerOptionSelector} from "./components/ComputerOptionSelector";
 
 function App() {
 
-  const [userSelection, setUserSelection] = useState("")
-  const [computerSelection, setComputerSelection] = useState("")
+  const [userSelection, setUserSelection] = useState(options.NULL_OPTION)
+  const [computerSelection, setComputerSelection] = useState(options.NULL_OPTION)
   const [isLoadingResults, setIsLoadingResults] = useState(false)
 
   const submitUserSelection = (option) => {
-    let keys = Object.keys(options)
-    setUserSelection(option)
+    setUserSelection(option);
+    setIsLoadingResults(true);
+    let keys = Object.keys(options).filter((element) => element !== "NULL_OPTION")
     let randomOption = options[keys[Math.floor(Math.random() * keys.length)]];
     setComputerSelection(randomOption);
-    setIsLoadingResults(true);
   }
 
-  const selectedOptionText = () => {
-    if(userSelection !== ""){
-      return <h3>{userSelection.toUpperCase()}</h3>
-    }
-  }
-
-  function restartGame() {
-    setUserSelection("");
-    setComputerSelection("");
+  const restartGame = () => {
+    setIsLoadingResults(false);
+    setUserSelection(options.NULL_OPTION);
+    setComputerSelection(options.NULL_OPTION);
   }
 
   return (
     <>
       <h3 className={"choiceText"}>YOUR CHOICE</h3>
-      <OptionSelector userSelection={userSelection} onUserSelection={submitUserSelection} interactive/>
-      <h3>Computer's choice: {computerSelection}</h3>
-      <RandomOption option={computerSelection}/>
-      <WinnerAnnouncer userSelection={userSelection} computerSelection={computerSelection} isLoadingResult={isLoadingResults}/>
-      <button onClick={() => restartGame()}>Play again</button>
+      <UserOptionSelector userSelection={userSelection} onUserSelection={submitUserSelection} interactive/>
+      <ComputerOptionSelector option={computerSelection}
+                              isLoading={isLoadingResults}
+                              setIsLoading={setIsLoadingResults}/>
+
+      <WinnerAnnouncer userSelection={userSelection}
+                       computerSelection={computerSelection}
+                       shouldRender={userSelection !== options.NULL_OPTION && computerSelection !== options.NULL_OPTION && !isLoadingResults}
+                       restartGame={restartGame}
+      />
     </>
   );
 }

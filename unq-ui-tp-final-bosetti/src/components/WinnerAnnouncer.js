@@ -11,23 +11,31 @@ class OptionComparator {
   }
 }
 
-export const WinnerAnnouncer = ({userSelection, computerSelection, isLoadingResults}) => {
+export const WinnerAnnouncer = ({userSelection, computerSelection, shouldRender, restartGame}) => {
   const optionComparator = new OptionComparator()
 
-  function shouldRenderResult() {
-    return !isLoadingResults && userSelection !== "" && computerSelection !== "";
-  }
-
-  if(!shouldRenderResult()){
+  if(!shouldRender){
     return null
   }
 
-  if(shouldRenderResult() && optionComparator.winsAgainst(userSelection, computerSelection)){
-    return <p>Ganaste</p>
-  } else if(shouldRenderResult() && optionComparator.winsAgainst(computerSelection, userSelection)) {
-    return <p>Perdiste</p>
-  }else{
-     return <p>Empate!</p>
-  }
+  const resultText = () => {
+    if (shouldRender && optionComparator.winsAgainst(userSelection, computerSelection)) {
+      return "Ganaste";
+    } else if (shouldRender && optionComparator.winsAgainst(computerSelection, userSelection)) {
+      return "Perdiste";
+    } else if (shouldRender){
+      return "Empate!";
+    }
+  };
+
+  return <>
+    <p>{resultText()}</p>
+    <button onClick={(e) => {
+      e.preventDefault()
+      restartGame()
+    }}>
+      Play again
+    </button>
+  </>;
 
 }

@@ -3,5 +3,6 @@ export const options = {
   ROCK: "Rock",
   PAPER: "Paper",
   LIZARD: "Lizard",
-  SPOCK: "Spock"
+  SPOCK: "Spock",
+  NULL_OPTION: ""
 }
