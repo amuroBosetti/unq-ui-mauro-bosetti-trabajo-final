@@ -1,0 +1,39 @@
+.results{
+    display: grid;
+    grid-template-rows: 10% 90%;
+    grid-template-columns: 45% 5% 45%;
+    grid-template-areas:
+    "userTitle . CPUtitle"
+    "userImage vs CPUimage"
+;
+}
+
+.userTitle{
+    grid-area: userTitle;
+    text-align: center;
+}
+
+.CPUtitle{
+    grid-area: CPUtitle;
+    text-align: center;
+}
+
+.userImage{
+    grid-area: userImage;
+}
+
+.CPUimage{
+    grid-area: CPUImage;
+}
+
+.vs{
+    grid-area: vs;
+}
+
+.userImage, .CPUimage{
+    width: 90%;
+}
+
+.resultText{
+    text-align: center;
+}
