@@ -16,6 +16,3 @@ cd unq-ui-tp-final-bosetti
 npm start
 ```
 La app esta ahora corriendo en [http://localhost:3000](http://localhost:3000) 
-
-### Vista rapida
-Para su rapida visualizacion, cree esta review app en CodeSandbox: https://5ddr6.csb.app/
