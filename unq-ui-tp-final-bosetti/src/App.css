@@ -3,6 +3,24 @@
   flex-direction: column;
 }
 
+@media (min-width: 700px){
+  .selectionContainer{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .computerSelector{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .userSelector{
+    width: 50%;
+    margin-top: 0;
+  }
+}
+
 .submitButton{
   background-color: #FFE1A8;
   border: none;
@@ -10,6 +28,20 @@
   height: 4vh;
   margin-top: 10%;
   align-self: center;
+}
+
+.userSelector{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  height: 50%;
+}
+
+.computerSelector{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  height: 50%;
 }
 
 .submitButton:hover{

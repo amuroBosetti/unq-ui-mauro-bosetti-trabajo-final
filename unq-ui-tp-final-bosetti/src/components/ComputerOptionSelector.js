@@ -18,17 +18,17 @@ export const ComputerOptionSelector = ({option, isLoading, setIsLoading}) => {
   }
 
   if(isLoading && option !== ""){
-    return <>
+    return <div>
       <h3 className={"choiceText"}>CPU IS CHOOSING...</h3>
       <UserOptionSelector userSelection={""} interactive={false}/>
-    </>
+    </div>
   }
 
   if(!isLoading && option !== ""){
-    return <>
+    return <div className={"computerSelector"}>
       <h3 className={"choiceText"}>CPU CHOSE {option.toUpperCase()}</h3>
       <img src={optionImg()} alt={option} className={"confirmedOption"}/>
-    </>
+    </div>
   }
 
   return null;

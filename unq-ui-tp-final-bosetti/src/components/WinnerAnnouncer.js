@@ -32,15 +32,15 @@ export const WinnerAnnouncer = ({userSelection, computerSelection, shouldRender,
   };
 
   return <>
-    <p className={"resultText"}>{resultText()}</p>
+    <h3 className={"resultText"}>{resultText()}</h3>
     <Grid container
           spacing={3}
           alignItems={"center"}
           justify={"center"}>
       <Grid item xs={6}><p className={"userTitle"}>You chose:</p></Grid>
       <Grid item xs={6}><p className={"CPUtitle"}>CPU chose:</p></Grid>
-      <Grid item xs={6}><img className={"userImage"} src={"./" + userSelection.toLowerCase() + ".png"}/></Grid>
-      <Grid item xs={6}><img className={"CPUimage"} src={"./" + computerSelection.toLowerCase() + ".png"}/></Grid>
+      <Grid item xs={6}><img className={"userImage"} src={"./" + userSelection.toLowerCase() + ".png"} alt={"Imagen de la opcion elegida por el jugador:" + userSelection}/></Grid>
+      <Grid item xs={6}><img className={"CPUimage"} src={"./" + computerSelection.toLowerCase() + ".png"} alt={"Imagen de la opcion elegida por la computadora:" + computerSelection}/></Grid>
       <Grid item xs={6}><p className={"userTitle"}>{userSelection}</p></Grid>
       <Grid item xs={6}><p className={"userTitle"}>{computerSelection}</p></Grid>
     </Grid>

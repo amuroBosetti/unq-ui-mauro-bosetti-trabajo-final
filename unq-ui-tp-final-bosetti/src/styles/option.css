@@ -28,11 +28,28 @@
         "lizard . rock";
 }
 
+@media (min-width: 700px){
+    .optionsContainer{
+        width: 40vh;
+    }
+
+    .optionImage{
+        width: 25vh;
+    }
+    .choiceText{
+        width: 30%;
+        align-self: flex-start;
+        margin-left: 10%;
+    }
+}
+
 .confirmedOption{
     width: 50%;
     align-self: center;
     transition: opacity 2s;
 }
+
+
 
 .optionDescription{
     grid-area: description;

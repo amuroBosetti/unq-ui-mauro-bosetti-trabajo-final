@@ -8,6 +8,7 @@ import Dialog from "@material-ui/core/Dialog";
 import {ThemeProvider} from '@material-ui/core/styles';
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import {TopNavbar} from "./components/TopNavbar";
+import {RulesHelper} from "./components/RulesHelper";
 
 function App() {
 
@@ -45,11 +46,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <TopNavbar onClick={setShouldShowRules}/>
-      <h3 className={"choiceText"}>CHOOSE AN OPTION!</h3>
-      <UserOptionSelector userSelection={userSelection} onUserSelection={submitUserSelection} interactive/>
-      <ComputerOptionSelector option={computerSelection}
-                              isLoading={isLoadingResults}
-                              setIsLoading={setIsLoadingResults}/>
+      <div className={"selectionContainer"}>
+        <UserOptionSelector userSelection={userSelection} onUserSelection={submitUserSelection} interactive/>
+        <ComputerOptionSelector option={computerSelection}
+                                isLoading={isLoadingResults}
+                                setIsLoading={setIsLoadingResults}/>
+      </div>
       <Dialog
         open={shouldRenderWinnerAnnouncer()}
         children={<WinnerAnnouncer userSelection={userSelection}
@@ -58,20 +60,7 @@ function App() {
                                    restartGame={restartGame}
         />}
       />
-
-      <Dialog
-        open={shouldShowRules}
-        children={
-          <div>
-            <h2>How do I play this game?</h2>
-            <p>It's like regular Rock, Paper, Scissors, but with more options! Just pick one, and see if you can win
-              against a computer!</p>
-            <p>Since there are 5 options instead of the classic 3, each option wins against other two, and is defeated
-              by two. If you need help figuring out who beats who, try with this handy sheet:</p>
-            <img src={"https://i.pinimg.com/originals/d2/11/56/d21156a2a6a6fc187ca8934be97c409a.jpg"}
-                 alt={"Rules description"}/>
-          </div>}
-      />
+      <RulesHelper shouldShowRules={shouldShowRules} setShouldShowRules={setShouldShowRules}/>
     </ThemeProvider>
   );
 }

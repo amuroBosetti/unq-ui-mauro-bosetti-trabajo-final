@@ -8,8 +8,9 @@ const UserOptionSelector = ({userSelection, onUserSelection, interactive}) => {
 
   const [hoveredOption, setHoveredOption] = useState('')
 
-  const hoverFunctionIfShouldHaveHoverEffect= () => {
-    return interactive ? setHoveredOption : () => {}
+  const hoverFunctionIfShouldHaveHoverEffect = () => {
+    return interactive ? setHoveredOption : () => {
+    }
   }
 
   const hoveredOptionIfShouldHaveHoverEffect = () => {
@@ -22,22 +23,31 @@ const UserOptionSelector = ({userSelection, onUserSelection, interactive}) => {
   }
 
   const finalImage = () => {
-    return <img className="confirmedOption" src={"/" + userSelection.toLowerCase() + ".png"} alt={userSelection}/>;
+    return <div className={"userSelector"}>
+      <h3 className={"choiceText"}>CHOOSE AN OPTION!</h3>
+      <img className="confirmedOption" src={"/" + userSelection.toLowerCase() + ".png"} alt={userSelection}/>
+    </div>
   }
 
   const optionsContainer = () => {
-    return <div className="optionsContainer">
-      {getCentralTooltip()}
-      <Option image={"/scissors.png"} optionName={options.SCISSORS} onHover={hoverFunctionIfShouldHaveHoverEffect()}
-              hoveredOption={hoveredOptionIfShouldHaveHoverEffect()} onUserSelection={onSelectedOption}/>
-      <Option image={"/paper.png"} optionName={options.PAPER} onHover={hoverFunctionIfShouldHaveHoverEffect()} hoveredOption={hoveredOptionIfShouldHaveHoverEffect()}
-              onUserSelection={onSelectedOption}/>
-      <Option image={"/rock.png"} optionName={options.ROCK} onHover={hoverFunctionIfShouldHaveHoverEffect()} hoveredOption={hoveredOptionIfShouldHaveHoverEffect()}
-              onUserSelection={onSelectedOption}/>
-      <Option image={"/lizard.png"} optionName={options.LIZARD} onHover={hoverFunctionIfShouldHaveHoverEffect()} hoveredOption={hoveredOptionIfShouldHaveHoverEffect()}
-              onUserSelection={onSelectedOption}/>
-      <Option image={"/spock.png"} optionName={options.SPOCK} onHover={hoverFunctionIfShouldHaveHoverEffect()} hoveredOption={hoveredOptionIfShouldHaveHoverEffect()}
-              onUserSelection={onSelectedOption}/>
+    return <div className={"userSelector"}>
+      <div className="optionsContainer">
+        {getCentralTooltip()}
+        <Option image={"/scissors.png"} optionName={options.SCISSORS} onHover={hoverFunctionIfShouldHaveHoverEffect()}
+                hoveredOption={hoveredOptionIfShouldHaveHoverEffect()} onUserSelection={onSelectedOption}/>
+        <Option image={"/paper.png"} optionName={options.PAPER} onHover={hoverFunctionIfShouldHaveHoverEffect()}
+                hoveredOption={hoveredOptionIfShouldHaveHoverEffect()}
+                onUserSelection={onSelectedOption}/>
+        <Option image={"/rock.png"} optionName={options.ROCK} onHover={hoverFunctionIfShouldHaveHoverEffect()}
+                hoveredOption={hoveredOptionIfShouldHaveHoverEffect()}
+                onUserSelection={onSelectedOption}/>
+        <Option image={"/lizard.png"} optionName={options.LIZARD} onHover={hoverFunctionIfShouldHaveHoverEffect()}
+                hoveredOption={hoveredOptionIfShouldHaveHoverEffect()}
+                onUserSelection={onSelectedOption}/>
+        <Option image={"/spock.png"} optionName={options.SPOCK} onHover={hoverFunctionIfShouldHaveHoverEffect()}
+                hoveredOption={hoveredOptionIfShouldHaveHoverEffect()}
+                onUserSelection={onSelectedOption}/>
+      </div>
     </div>
       ;
   }

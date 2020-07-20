@@ -1,0 +1,14 @@
+.rulesContainer{
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+}
+
+.rulesImage{
+    width: 100%;
+}
+
+.rulesButton{
+    width: 90%;
+    align-self: center;
+}
