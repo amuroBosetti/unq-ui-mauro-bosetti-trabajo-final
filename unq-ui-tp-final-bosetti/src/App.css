@@ -3,24 +3,6 @@
   flex-direction: column;
 }
 
-@media (min-width: 700px){
-  .selectionContainer{
-    display: flex;
-    flex-direction: row;
-  }
-
-  .computerSelector{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-  }
-
-  .userSelector{
-    width: 50%;
-    margin-top: 0;
-  }
-}
-
 .submitButton{
   background-color: #FFE1A8;
   border: none;
@@ -54,3 +36,23 @@
 .choiceText{
   align-self: center;
 }
+
+@media (min-width: 700px){
+  .selectionContainer{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .computerSelector{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 5%;
+  }
+
+  .userSelector{
+    width: 50%;
+    margin-top: 0;
+  }
+}
+

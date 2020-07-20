@@ -30,7 +30,11 @@
 
 @media (min-width: 700px){
     .optionsContainer{
-        width: 40vh;
+        width: 100%;
+    }
+
+    .userSelector{
+        margin-top: 5%;
     }
 
     .optionImage{
@@ -38,7 +42,7 @@
     }
     .choiceText{
         width: 30%;
-        align-self: flex-start;
+        align-self: center;
         margin-left: 10%;
     }
 }

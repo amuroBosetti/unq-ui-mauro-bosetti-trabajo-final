@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import UserOptionSelector from "./pages/UserOptionSelector";
+import "../styles/option.css"
 import "../App.css"
 
 

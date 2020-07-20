@@ -6,7 +6,7 @@ Algunas features de la misma:
 * Uso de iconografia clara, para identificar cada opcion. Ademas, se incluye una pestaña de instrucciones. 
 * Diseño completamente responsive, desarrollado desde un principio de forma mobile-first.
 
-###Instrucciones
+### Instrucciones
 Para levantar la app en local, clonar el repo y correr
 ``` npm start```. <br />
 ```
@@ -16,4 +16,6 @@ cd unq-ui-tp-final-bosetti
 npm start
 ```
 La app esta ahora corriendo en [http://localhost:3000](http://localhost:3000) 
-Runs the app in the development mode.<br />
+
+### Vista rapida
+Para su rapida visualizacion, cree esta review app en CodeSandbox: https://5ddr6.csb.app/
