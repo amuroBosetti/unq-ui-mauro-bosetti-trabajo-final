@@ -18,7 +18,7 @@ export const ComputerOptionSelector = ({option, isLoading, setIsLoading}) => {
   }
 
   if(isLoading && option !== ""){
-    return <div>
+    return <div className={"computerSelector"}>
       <h3 className={"choiceText"}>CPU IS CHOOSING...</h3>
       <UserOptionSelector userSelection={""} interactive={false}/>
     </div>
